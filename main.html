@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora Básica</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .calculadora {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+    .calculadora input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    .calculadora button {
+      width: 48%;
+      padding: 10px;
+      font-size: 16px;
+      margin: 1%;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .calculadora button:hover {
+      background-color: #ddd;
+    }
+    .resultado {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculadora">
+    <h2>Calculadora Básica</h2>
+    <input type="number" id="numero1" placeholder="Digite o primeiro número">
+    <input type="number" id="numero2" placeholder="Digite o segundo número">
+    <div>
+      <button onclick="somar()">Somar</button>
+      <button onclick="subtrair()">Subtrair</button>
+      <button onclick="multiplicar()">Multiplicar</button>
+      <button onclick="dividir()">Dividir</button>
+    </div>
+    <p class="resultado" id="resultado"></p>
+  </div>
+  <script>
+    function somar() {
+      const num1 = parseFloat(document.getElementById('numero1').value);
+      const num2 = parseFloat(document.getElementById('numero2').value);
+      document.getElementById('resultado').textContent = `Resultado: ${num1 + num2}`;
+    }
+    function subtrair() {
+      const num1 = parseFloat(document.getElementById('numero1').value);
+      const num2 = parseFloat(document.getElementById('numero2').value);
+      document.getElementById('resultado').textContent = `Resultado: ${num1 - num2}`;
+    }
+    function multiplicar() {
+      const num1 = parseFloat(document.getElementById('numero1').value);
+      const num2 = parseFloat(document.getElementById('numero2').value);
+      document.getElementById('resultado').textContent = `Resultado: ${num1 * num2}`;
+    }
+    function dividir() {
+      const num1 = parseFloat(document.getElementById('numero1').value);
+      const num2 = parseFloat(document.getElementById('numero2').value);
+      if (num2 !== 0) {
+        document.getElementById('resultado').textContent = `Resultado: ${num1 / num2}`;
+      } else {
+        document.getElementById('resultado').textContent = "Erro: Divisão por zero não é permitida.";
+      }
+    }
+  </script>
+</body>
+</html>
